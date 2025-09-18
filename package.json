@@ -1,0 +1,27 @@
+{
+  "name": "direct-hide-s3-ctf-challenge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Direct Hide S3 3 - Enhanced Misdirection CTF Challenge for Netlify",
+  "main": "public/index.html",
+  "scripts": {
+    "build": "echo 'No build required - static files with Netlify Functions'",
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "keywords": [
+    "ctf",
+    "challenge",
+    "netlify",
+    "misdirection",
+    "security"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
+

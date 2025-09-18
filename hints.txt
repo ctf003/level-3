@@ -1,0 +1,162 @@
+DIRECT HIDE S3 3 - PROGRESSIVE HINTS SYSTEM
+===========================================
+
+🎯 OBJECTIVE: Find the real flag, not the decoy!
+
+⚠️  WARNING: This challenge contains multiple FAKE paths designed to waste your time.
+    The UI is your enemy - it's designed to mislead you!
+
+📝 HINT LEVELS (Read only what you need)
+
+══════════════════════════════════════════════════════════════════════════════
+HINT 1 - BASIC AWARENESS
+══════════════════════════════════════════════════════════════════════════════
+
+🚨 NOT EVERYTHING YOU SEE IS REAL
+
+The big green "Download Flag" button is FAKE.
+The terminal widget is FAKE.
+The breadcrumbs are FAKE.
+The /flag/goal.txt file contains a DECOY.
+
+💡 Key insight: Real vulnerabilities rarely have fancy UI buttons.
+💡 Pro tip: Security researchers often check robots.txt and inspect HTML source code.
+💡 Remember: Error messages can contain valuable clues!
+
+══════════════════════════════════════════════════════════════════════════════
+HINT 2 - METHODOLOGY GUIDANCE  
+══════════════════════════════════════════════════════════════════════════════
+
+🔍 IGNORE THE UI - FOCUS ON ENDPOINTS
+
+Instead of clicking buttons, try:
+- Manual HTTP requests
+- URL path enumeration  
+- Parameter testing
+- Different HTTP methods
+
+💡 Think like a penetration tester, not a regular user.
+
+══════════════════════════════════════════════════════════════════════════════
+HINT 3 - ENDPOINT DISCOVERY
+══════════════════════════════════════════════════════════════════════════════
+
+🎯 LOOK FOR HIDDEN ENDPOINTS
+
+Try common endpoint patterns:
+- /api/*
+- /admin/*  
+- /download*
+- /handshake*
+- /upload*
+
+💡 Real exploits often live in undocumented endpoints.
+💡 If you find an endpoint, try exploring its subdirectories!
+
+══════════════════════════════════════════════════════════════════════════════
+HINT 4 - PARAMETER ENUMERATION
+══════════════════════════════════════════════════════════════════════════════
+
+🧪 TEST PARAMETERS ON DISCOVERED ENDPOINTS
+
+When you find an endpoint, try different parameters:
+- ?id=*
+- ?file=*
+- ?user=*
+- ?admin=*
+
+💡 IDOR (Insecure Direct Object Reference) vulnerabilities are common.
+
+══════════════════════════════════════════════════════════════════════════════
+HINT 5 - SPECIFIC GUIDANCE
+══════════════════════════════════════════════════════════════════════════════
+
+🎯 TWO MAIN ATTACK VECTORS
+
+Path A: Parameter-based vulnerability
+- Find the endpoint that accepts file/object IDs
+- Try different ID values
+- Look for access control bypass
+
+Path B: Authentication mechanism  
+- Find the endpoint that accepts credentials/tokens
+- Research what credentials might work
+- Consider the challenge theme/context
+
+💡 The real flag format is: flag{LOCATION_DESCRIPTION}
+
+══════════════════════════════════════════════════════════════════════════════
+HINT 6 - TECHNICAL SPECIFICS
+══════════════════════════════════════════════════════════════════════════════
+
+🔧 SPECIFIC ATTACK PATTERNS
+
+For endpoint discovery:
+- Check robots.txt first
+- When you find endpoints, read their messages carefully
+- Try exploring subdirectories of discovered endpoints
+- Look for files with familiar names (like goal.txt)
+
+For authentication bypass:
+- Look for clues in the challenge name/theme
+- Try common credential combinations
+- Consider what the real flag might reference
+
+💡 Sometimes the path is simpler than complex parameter attacks.
+
+══════════════════════════════════════════════════════════════════════════════
+HINT 7 - SOLUTION METHODS
+══════════════════════════════════════════════════════════════════════════════
+
+🎯 EXACT ATTACK VECTORS (ALMOST GIVING IT AWAY)
+
+Method 1: Simple Discovery Path
+- Check: /robots.txt for endpoint list
+- Visit: /download endpoint
+- Read the message carefully
+- Try: /download/goal.txt
+
+Method 2: Handshake Authentication  
+- Endpoint: /handshake
+- Method: POST
+- Content-Type: application/json
+- Look for token/verify parameters
+
+💡 The real flag references a tree and a building location.
+
+══════════════════════════════════════════════════════════════════════════════
+HINT 8 - COMPLETE SOLUTIONS (SPOILERS!)
+══════════════════════════════════════════════════════════════════════════════
+
+🏆 WORKING EXPLOITS
+
+Solution A (Simple Discovery):
+curl "http://localhost:3000/robots.txt"
+curl "http://localhost:3000/download"
+curl "http://localhost:3000/download/goal.txt"
+
+Solution B (Authentication):  
+curl -X POST -H "Content-Type: application/json" \
+  -d '{"token":"pharmacy_tree","verify":"jamun"}' \
+  http://localhost:3000/handshake
+
+Real Flag: flag{JAMUN_TREE_IN_FRONT_OF_PHARMACY}
+
+══════════════════════════════════════════════════════════════════════════════
+
+📚 LEARNING OBJECTIVES:
+
+1. UI misdirection is a real attack vector
+2. Always enumerate endpoints manually  
+3. Parameter fuzzing finds hidden functionality
+4. Psychological tricks affect security testing
+5. Real vulnerabilities rarely have obvious interfaces
+
+🎓 SKILLS DEVELOPED:
+- Manual endpoint enumeration
+- IDOR vulnerability testing  
+- Authentication bypass techniques
+- Resistance to social engineering
+- HTTP request crafting
+
+Good luck, and remember: Don't trust the UI! 🕵️

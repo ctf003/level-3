@@ -1,0 +1,41 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+# Decoy endpoints (fake flags)
+[[redirects]]
+  from = "/flag"
+  to = "/.netlify/functions/flag"
+  status = 200
+
+[[redirects]]
+  from = "/flag/goal.txt"
+  to = "/.netlify/functions/goal"
+  status = 200
+
+# Real exploit endpoints
+[[redirects]]
+  from = "/download"
+  to = "/.netlify/functions/download"
+  status = 200
+
+[[redirects]]
+  from = "/download/goal.txt"
+  to = "/.netlify/functions/download-goal"
+  status = 200
+
+[[redirects]]
+  from = "/handshake"
+  to = "/.netlify/functions/handshake"
+  status = 200
+
+# Additional endpoints
+[[redirects]]
+  from = "/admin"
+  to = "/.netlify/functions/admin"
+  status = 200
+
+[[redirects]]
+  from = "/ui-log"
+  to = "/.netlify/functions/ui-log"
+  status = 200
